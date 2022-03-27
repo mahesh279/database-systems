@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 27, 2022 at 11:24 PM
+- Server version: 10.4.21-MariaDB
+- PHP Version: 7.4.23
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="msms" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="devices">
+                CREATE TABLE `devices` (
+                  `DEV_ID` int(5) NOT NULL AUTO_INCREMENT,
+                  `DEV_MAKE` varchar(20) DEFAULT NULL,
+                  `DEV_MODEL` varchar(20) DEFAULT NULL,
+                  `DEV_VERSION` varchar(20) DEFAULT NULL,
+                  `DEV_ACCSSORIES` varchar(20) DEFAULT NULL,
+                  PRIMARY KEY (`DEV_ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'msms'
+    -->
+    <database name="msms">
+        <!-- Table devices -->
+        <table name="devices">
+            <column name="DEV_ID">1</column>
+            <column name="DEV_MAKE">Apple</column>
+            <column name="DEV_MODEL">I6</column>
+            <column name="DEV_VERSION">2</column>
+            <column name="DEV_ACCSSORIES">Speaker</column>
+        </table>
+        <table name="devices">
+            <column name="DEV_ID">2</column>
+            <column name="DEV_MAKE">Samsung</column>
+            <column name="DEV_MODEL">g3</column>
+            <column name="DEV_VERSION">9.1</column>
+            <column name="DEV_ACCSSORIES">Display</column>
+        </table>
+        <table name="devices">
+            <column name="DEV_ID">3</column>
+            <column name="DEV_MAKE">Ericson</column>
+            <column name="DEV_MODEL">e7</column>
+            <column name="DEV_VERSION">3.2</column>
+            <column name="DEV_ACCSSORIES">Bluetooth</column>
+        </table>
+        <table name="devices">
+            <column name="DEV_ID">4</column>
+            <column name="DEV_MAKE">Samsung</column>
+            <column name="DEV_MODEL">g3</column>
+            <column name="DEV_VERSION">9.1</column>
+            <column name="DEV_ACCSSORIES">Micro Phone</column>
+        </table>
+        <table name="devices">
+            <column name="DEV_ID">5</column>
+            <column name="DEV_MAKE">Oppo</column>
+            <column name="DEV_MODEL">o4</column>
+            <column name="DEV_VERSION">3.2</column>
+            <column name="DEV_ACCSSORIES">Camera</column>
+        </table>
+    </database>
+</pma_xml_export>

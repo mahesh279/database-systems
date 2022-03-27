@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 27, 2022 at 09:01 PM
+- Server version: 10.4.21-MariaDB
+- PHP Version: 7.4.23
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="msms" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="bills">
+                CREATE TABLE `bills` (
+                  `B_ID` int(5) NOT NULL AUTO_INCREMENT,
+                  `B_NAME` varchar(20) DEFAULT NULL,
+                  `B_SERVICES` varchar(20) DEFAULT NULL,
+                  `B_ACCESSORIES` varchar(20) DEFAULT NULL,
+                  `B_PRICE` int(5) DEFAULT NULL,
+                  `B_UNITS` int(5) DEFAULT NULL,
+                  `B_AMOUNT` int(5) DEFAULT NULL,
+                  PRIMARY KEY (`B_ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'msms'
+    -->
+    <database name="msms">
+        <!-- Table bills -->
+        <table name="bills">
+            <column name="B_ID">1</column>
+            <column name="B_NAME">Jonty</column>
+            <column name="B_SERVICES">Maintenance</column>
+            <column name="B_ACCESSORIES">Bluetooth</column>
+            <column name="B_PRICE">210</column>
+            <column name="B_UNITS">1</column>
+            <column name="B_AMOUNT">210</column>
+        </table>
+        <table name="bills">
+            <column name="B_ID">2</column>
+            <column name="B_NAME">Carlson</column>
+            <column name="B_SERVICES">Maintenance</column>
+            <column name="B_ACCESSORIES">Touch Screen</column>
+            <column name="B_PRICE">100</column>
+            <column name="B_UNITS">1</column>
+            <column name="B_AMOUNT">100</column>
+        </table>
+        <table name="bills">
+            <column name="B_ID">3</column>
+            <column name="B_NAME">Hudson</column>
+            <column name="B_SERVICES">Maintenance</column>
+            <column name="B_ACCESSORIES">Micro Phone</column>
+            <column name="B_PRICE">150</column>
+            <column name="B_UNITS">1</column>
+            <column name="B_AMOUNT">150</column>
+        </table>
+        <table name="bills">
+            <column name="B_ID">4</column>
+            <column name="B_NAME">Candela</column>
+            <column name="B_SERVICES">Maintenance</column>
+            <column name="B_ACCESSORIES">Speaker</column>
+            <column name="B_PRICE">120</column>
+            <column name="B_UNITS">1</column>
+            <column name="B_AMOUNT">120</column>
+        </table>
+        <table name="bills">
+            <column name="B_ID">5</column>
+            <column name="B_NAME">Dave</column>
+            <column name="B_SERVICES">Maintenance</column>
+            <column name="B_ACCESSORIES">Board</column>
+            <column name="B_PRICE">150</column>
+            <column name="B_UNITS">1</column>
+            <column name="B_AMOUNT">150</column>
+        </table>
+    </database>
+</pma_xml_export>

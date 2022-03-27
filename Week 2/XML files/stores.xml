@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 27, 2022 at 11:25 PM
+- Server version: 10.4.21-MariaDB
+- PHP Version: 7.4.23
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="msms" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="stores">
+                CREATE TABLE `stores` (
+                  `STR_TECH_NAME` varchar(20) NOT NULL,
+                  `STR_TECH_ID` int(5) DEFAULT NULL,
+                  `STR_TECH_ROLE` varchar(20) DEFAULT NULL,
+                  `STR_TECH_EXP` varchar(20) DEFAULT NULL,
+                  PRIMARY KEY (`STR_TECH_NAME`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'msms'
+    -->
+    <database name="msms">
+        <!-- Table stores -->
+        <table name="stores">
+            <column name="STR_TECH_NAME">Alice</column>
+            <column name="STR_TECH_ID">1</column>
+            <column name="STR_TECH_ROLE">Technician</column>
+            <column name="STR_TECH_EXP">Mobiles</column>
+        </table>
+        <table name="stores">
+            <column name="STR_TECH_NAME">Charlie</column>
+            <column name="STR_TECH_ID">4</column>
+            <column name="STR_TECH_ROLE">Assembler</column>
+            <column name="STR_TECH_EXP">Mobiles</column>
+        </table>
+        <table name="stores">
+            <column name="STR_TECH_NAME">Donald</column>
+            <column name="STR_TECH_ID">2</column>
+            <column name="STR_TECH_ROLE">Supervisor</column>
+            <column name="STR_TECH_EXP">Tablets</column>
+        </table>
+        <table name="stores">
+            <column name="STR_TECH_NAME">Johnson</column>
+            <column name="STR_TECH_ID">3</column>
+            <column name="STR_TECH_ROLE">Technician</column>
+            <column name="STR_TECH_EXP">Tablets</column>
+        </table>
+        <table name="stores">
+            <column name="STR_TECH_NAME">Phantom</column>
+            <column name="STR_TECH_ID">5</column>
+            <column name="STR_TECH_ROLE">Grader</column>
+            <column name="STR_TECH_EXP">Mobiles</column>
+        </table>
+    </database>
+</pma_xml_export>

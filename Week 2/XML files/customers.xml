@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 27, 2022 at 11:24 PM
+- Server version: 10.4.21-MariaDB
+- PHP Version: 7.4.23
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="msms" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="customers">
+                CREATE TABLE `customers` (
+                  `CUST_ID` int(5) NOT NULL AUTO_INCREMENT,
+                  `CUST_NAME` varchar(20) DEFAULT NULL,
+                  `CUST_PHONE` int(5) DEFAULT NULL,
+                  `CUST_DEVICE` varchar(20) DEFAULT NULL,
+                  `CUST_UNITS` int(5) DEFAULT NULL,
+                  PRIMARY KEY (`CUST_ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'msms'
+    -->
+    <database name="msms">
+        <!-- Table customers -->
+        <table name="customers">
+            <column name="CUST_ID">1</column>
+            <column name="CUST_NAME">Daniel</column>
+            <column name="CUST_PHONE">123456</column>
+            <column name="CUST_DEVICE">Samsung G3</column>
+            <column name="CUST_UNITS">1</column>
+        </table>
+        <table name="customers">
+            <column name="CUST_ID">2</column>
+            <column name="CUST_NAME">Ruban</column>
+            <column name="CUST_PHONE">345678</column>
+            <column name="CUST_DEVICE">Iphone</column>
+            <column name="CUST_UNITS">2</column>
+        </table>
+        <table name="customers">
+            <column name="CUST_ID">3</column>
+            <column name="CUST_NAME">Lourd Raj</column>
+            <column name="CUST_PHONE">567844</column>
+            <column name="CUST_DEVICE">Motorola V6</column>
+            <column name="CUST_UNITS">1</column>
+        </table>
+        <table name="customers">
+            <column name="CUST_ID">4</column>
+            <column name="CUST_NAME">Stella</column>
+            <column name="CUST_PHONE">764533</column>
+            <column name="CUST_DEVICE">Ericsson</column>
+            <column name="CUST_UNITS">1</column>
+        </table>
+        <table name="customers">
+            <column name="CUST_ID">5</column>
+            <column name="CUST_NAME">Phillips</column>
+            <column name="CUST_PHONE">967956</column>
+            <column name="CUST_DEVICE">Nokia</column>
+            <column name="CUST_UNITS">2</column>
+        </table>
+    </database>
+</pma_xml_export>

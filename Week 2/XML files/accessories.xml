@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Mar 27, 2022 at 08:59 PM
+- Server version: 10.4.21-MariaDB
+- PHP Version: 7.4.23
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="msms" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="accessories">
+                CREATE TABLE `accessories` (
+                  `ACC_ID` int(5) NOT NULL AUTO_INCREMENT,
+                  `ACC_NAME` varchar(20) DEFAULT NULL,
+                  `ACC_INWARD` int(5) DEFAULT NULL,
+                  `ACC_BUY_RATE` int(5) DEFAULT NULL,
+                  `ACC_OUTWARD` int(5) DEFAULT NULL,
+                  PRIMARY KEY (`ACC_ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'msms'
+    -->
+    <database name="msms">
+        <!-- Table accessories -->
+        <table name="accessories">
+            <column name="ACC_ID">1</column>
+            <column name="ACC_NAME">Touch Screen</column>
+            <column name="ACC_INWARD">100</column>
+            <column name="ACC_BUY_RATE">28</column>
+            <column name="ACC_OUTWARD">6</column>
+        </table>
+        <table name="accessories">
+            <column name="ACC_ID">2</column>
+            <column name="ACC_NAME">Board</column>
+            <column name="ACC_INWARD">256</column>
+            <column name="ACC_BUY_RATE">98</column>
+            <column name="ACC_OUTWARD">121</column>
+        </table>
+        <table name="accessories">
+            <column name="ACC_ID">3</column>
+            <column name="ACC_NAME">Speaker</column>
+            <column name="ACC_INWARD">157</column>
+            <column name="ACC_BUY_RATE">37</column>
+            <column name="ACC_OUTWARD">18</column>
+        </table>
+        <table name="accessories">
+            <column name="ACC_ID">4</column>
+            <column name="ACC_NAME">Microphone</column>
+            <column name="ACC_INWARD">118</column>
+            <column name="ACC_BUY_RATE">75</column>
+            <column name="ACC_OUTWARD">17</column>
+        </table>
+        <table name="accessories">
+            <column name="ACC_ID">5</column>
+            <column name="ACC_NAME">Bluetooth</column>
+            <column name="ACC_INWARD">342</column>
+            <column name="ACC_BUY_RATE">156</column>
+            <column name="ACC_OUTWARD">234</column>
+        </table>
+    </database>
+</pma_xml_export>
