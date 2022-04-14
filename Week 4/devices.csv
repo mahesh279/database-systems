@@ -1,4 +1,3 @@
-﻿"Stf_ID","Stf_Name","Stf_Role","Stf_Serv_Units"
-"2001","Lorenz","Technician","28"
-"2002","Decaprio","Supervisor","70"
-"2003","Selena","Technician","20"
+﻿5001,apple,v13,10c,Bluetooth,1001,2002,4002
+5002,samsung,g10,11a,RAM,1003,2003,4001
+5003,oppo,11,9g,ScreenGuard,1002,2001,4003

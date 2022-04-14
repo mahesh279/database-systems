@@ -1,4 +1,3 @@
-﻿"B_ID","B_Date","B_Name","B_Services","B_Accessories","B_Price","B_Units","B_Amount","Cust_ID"
-"3001","2022-04-11","Murugan","Apple","Bluetooth","50","1","55","1001"
-"3002","2022-04-11","Ram","Samsung","Ram","75","1","83","1002"
-"3003","2022-04-11","Jacob","Oppo","Screen guard","10","1","11","1003"
+﻿3001,4/13/2022,Murugan,Apple,Bluetooth,50,1,55,1001
+3002,4/13/2022,Ram,Samsung,Ram,75,1,83,1002
+3003,4/13/2022,Jacob,Oppo,Screen guard,10,1,11,1003
