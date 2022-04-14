@@ -1,0 +1,189 @@
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2022-04-11 16:59:47.532
+
+-- tables
+-- Table: Accessories
+CREATE TABLE Accessories (
+    Acc_ID int  NOT NULL,
+    Acc_Name varchar(25)  NOT NULL,
+    Acc_In_Units int  NOT NULL,
+    Acc_BuyRate float  NOT NULL,
+    Acc_Out_Units int  NOT NULL,
+    CONSTRAINT Accessories_pk PRIMARY KEY (Acc_ID)
+);
+
+-- Table: Bills
+CREATE TABLE Bills (
+    B_ID int  NOT NULL,
+    B_Date date  NOT NULL,
+    B_Name varchar(25)  NOT NULL,
+    B_Services varchar(25)  NOT NULL,
+    B_Accessories varchar(25)  NOT NULL,
+    B_Price float  NOT NULL,
+    B_Units int  NOT NULL,
+    B_Amount float  NOT NULL,
+    Customers_Cust_ID int  NOT NULL,
+    CONSTRAINT Bills_pk PRIMARY KEY (B_ID)
+);
+
+-- Table: Customers
+CREATE TABLE Customers (
+    Cust_ID int  NOT NULL,
+    Cust_Name varchar(25)  NOT NULL,
+    Cust_Contact int  NOT NULL,
+    Cust_Device varchar(25)  NOT NULL,
+    Cust_Dev_Units int  NOT NULL,
+    CONSTRAINT Customers_pk PRIMARY KEY (Cust_ID)
+);
+
+-- Table: Devices
+CREATE TABLE Devices (
+    Dev_ID int  NOT NULL,
+    Dev_Make varchar(25)  NOT NULL,
+    Dev_Model varchar(25)  NOT NULL,
+    Dev_Version varchar(25)  NOT NULL,
+    Dev_Accessories varchar(25)  NOT NULL,
+    Bills_B_ID int  NOT NULL,
+    Staff_Stf_ID int  NOT NULL,
+    Accessories_Acc_ID int  NOT NULL,
+    CONSTRAINT Devices_pk PRIMARY KEY (Dev_ID)
+);
+
+-- Table: Staff
+CREATE TABLE Staff (
+    Stf_ID int  NOT NULL,
+    Stf_Name varchar(25)  NOT NULL,
+    Stf_Role varchar(25)  NOT NULL,
+    Stf_Serv_Units int  NOT NULL,
+    Accessories_Acc_ID int  NOT NULL,
+    CONSTRAINT Staff_pk PRIMARY KEY (Stf_ID)
+);
+
+-- foreign keys
+-- Reference: Bills_Customers (table: Bills)
+ALTER TABLE Bills ADD CONSTRAINT Bills_Customers
+    FOREIGN KEY (Customers_Cust_ID)
+    REFERENCES Customers (Cust_ID)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Devices_Accessories (table: Devices)
+ALTER TABLE Devices ADD CONSTRAINT Devices_Accessories
+    FOREIGN KEY (Accessories_Acc_ID)
+    REFERENCES Accessories (Acc_ID)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Devices_Bills (table: Devices)
+ALTER TABLE Devices ADD CONSTRAINT Devices_Bills
+    FOREIGN KEY (Bills_B_ID)
+    REFERENCES Bills (B_ID)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Devices_Staff (table: Devices)
+ALTER TABLE Devices ADD CONSTRAINT Devices_Staff
+    FOREIGN KEY (Staff_Stf_ID)
+    REFERENCES Staff (Stf_ID)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: Staff_Accessories (table: Staff)
+ALTER TABLE Staff ADD CONSTRAINT Staff_Accessories
+    FOREIGN KEY (Accessories_Acc_ID)
+    REFERENCES Accessories (Acc_ID)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- End of file.
+
+
+INSERT INTO `accessories` VALUES (4001, 'RAM', 218, 20, 76, 5001, 2001);
+INSERT INTO `accessories` VALUES (4002, 'Bluetooth', 315, 30, 118, 5002, 2002);
+INSERT INTO `accessories` VALUES (4003, 'ScreenGuard', 173, 40, 89, 5003, 2003);
+
+INSERT INTO `bills` VALUES (3001, '2022-04-11', 'Murugan', 'Apple', 'Bluetooth', 50, 1, 55, 1001);
+INSERT INTO `bills` VALUES (3002, '2022-04-11', 'Ram', 'Samsung', 'Ram', 75, 1, 83, 1002);
+INSERT INTO `bills` VALUES (3003, '2022-04-11', 'Jacob', 'Oppo', 'Screen guard', 10, 1, 11, 1003);
+
+INSERT INTO `customers` VALUES (1001, 'Fransis', 12345, 'Oppo', 1);
+INSERT INTO `customers` VALUES (1002, 'Ruby', 23456, 'Samsung', 1);
+INSERT INTO `customers` VALUES (1003, 'Jenniefer', 34567, 'Apple', 1);
+
+INSERT INTO `devices` VALUES (5001, 'apple', 'v13', '10c', 'Bluetooth', 1001, 2002, 4002, 3003);
+INSERT INTO `devices` VALUES (5002, 'samsung', 'g10', '11a', 'RAM', 1003, 2003, 4001, 3001);
+INSERT INTO `devices` VALUES (5003, 'oppo', '011', '9G', 'ScreenGuard', 1002, 2001, 4003, 3002);
+
+INSERT INTO `staffs` VALUES (2001, 'Lorenz', 'Technician', 28);
+INSERT INTO `staffs` VALUES (2002, 'Decaprio', 'Supervisor', 70);
+INSERT INTO `staffs` VALUES (2003, 'Selena', 'Technician', 20);
+
+UPDATE ACCESSORIES SET Acc_BuyRate=Acc_BuyRate*1.10 WHERE Acc_Name='RAM';
+UPDATE BILLS SET B_Price=60 where B_ID=3001;
+
+DELETE FROM staffs WHERE Stf_ID=2003;
+
+SELECT * FROM staffs;
+
+select accessories.Acc_ID, accessories.Acc_Name 
+from accessories
+inner join bills
+on accessories.Acc_Name=bills.B_Accessories;
+
+select devices.Dev_Accessories, Dev_Make, accessories.Acc_Name 
+from devices
+inner join accessories
+on devices.Dev_Accessories=accessories.Acc_Name;
+
+SELECT COUNT(Stf_ID), Stf_Role
+FROM staffs
+group by Stf_Role;
+
+SELECT MAX(Stf_ID), Stf_Role
+FROM staffs
+group by Stf_Role;
+
+SELECT COUNT(Dev_ID), Dev_Make
+FROM devices
+group by Dev_Make
+HAVING Dev_Make='Apple';
+
+SELECT bills.B_ID, customers.Cust_Name   
+FROM customers
+INNER JOIN bills
+ON customers.Cust_ID = bills.Cust_ID  
+ORDER BY B_id;
+
+
+REPLACE INTO `accessories` (`Acc_ID`, `Acc_Name`, `Acc_In_Units`, `Acc_BuyRate`, `Acc_Out_Units`, `Dev_ID`, `Stf_ID`) VALUES
+	(4001, 'RAM', 218, 20, 76, 5001, 2001),
+	(4002, 'Bluetooth', 315, 30, 118, 5002, 2002),
+	(4003, 'ScreenGuard', 173, 40, 89, 5003, 2003);
+
+REPLACE INTO `bills` (`B_ID`, `B_Date`, `B_Name`, `B_Services`, `B_Accessories`, `B_Price`, `B_Units`, `B_Amount`, `Cust_ID`) VALUES
+	(3001, '2022-04-11', 'Murugan', 'Apple', 'Bluetooth', 50, 1, 55, 1001),
+	(3002, '2022-04-11', 'Ram', 'Samsung', 'Ram', 75, 1, 83, 1002),
+	(3003, '2022-04-11', 'Jacob', 'Oppo', 'Screen guard', 10, 1, 11, 1003);
+
+REPLACE INTO `customers` (`Cust_ID`, `Cust_Name`, `Cust_Contact`, `Cust_Device`, `Cust_Dev_Units`) VALUES
+	(1001, 'Fransis', 12345, 'Oppo', 1),
+	(1002, 'Ruby', 23456, 'Samsung', 1),
+	(1003, 'Jenniefer', 34567, 'Apple', 1);
+
+REPLACE INTO `devices` (`Dev_ID`, `Dev_Make`, `Dev_Model`, `Dev_Version`, `Dev_Accessories`, `Cust_ID`, `Stf_ID`, `Acc_ID`, `B_ID`) VALUES
+	(5001, 'apple', 'v13', '10c', 'Bluetooth', 1001, 2002, 4002, 3003),
+	(5002, 'samsung', 'g10', '11a', 'RAM', 1003, 2003, 4001, 3001),
+	(5003, 'oppo', '011', '9G', 'ScreenGuard', 1002, 2001, 4003, 3002);
+
+REPLACE INTO `staffs` (`Stf_ID`, `Stf_Name`, `Stf_Role`, `Stf_Serv_Units`) VALUES
+	(2001, 'Lorenz', 'Technician', 28),
+	(2002, 'Decaprio', 'Supervisor', 70),
+	(2003, 'Selena', 'Technician', 20);
+
+
+
